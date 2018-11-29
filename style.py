@@ -21,6 +21,11 @@ def main():
                     box = (randnum-113,randnum-113,randnum+114,randnum+114)
                     region = ima.crop(box)
                     img.append(np.asarray(ima.crop(box)))
+                    
+    # save using json
+    f=open('file.json','w')
+    f.write(json.dumps({"labels":labels, "img":img}))
+    f.close()
 
 if __name__ == '__main__':
     main()
