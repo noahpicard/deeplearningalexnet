@@ -17,6 +17,11 @@ def main():
                     ima = Image.open(file)
                     ima = ima.resize((227,227))
                     img.append(np.asarray(img))
+                    
+    # save using json
+    f=open('file_shrinkage.json','w')
+    f.write(json.dumps({"labels":labels, "img":img}))
+    f.close()
 
 if __name__ == '__main__':
     main()
